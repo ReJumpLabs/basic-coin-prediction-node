@@ -162,5 +162,8 @@ def get_inference(token, timeframe, region, data_provider):
     print(X_new.shape)
 
     current_price_pred = loaded_model.predict(X_new)
+    percentage_variation = current_price_pred[0] * 0.0008
+    
+    random_value = random.uniform(current_price_pred[0] - percentage_variation, current_price_pred[0] + percentage_variation)
 
-    return current_price_pred[0]
+    return random_value
